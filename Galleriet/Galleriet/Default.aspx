@@ -11,17 +11,17 @@
     <form id="form1" runat="server">
         <h1>Galleriet</h1>
         <div class="clear"></div>
-        <asp:Panel ID="ClosePanel" runat="server" Visible="false">
+        <asp:Panel ID="ResponsePanel" runat="server" Visible="false">
             <asp:Label ID="Label1" runat="server"></asp:Label>
             <asp:ImageButton ID="closeImg" runat="server" ImageUrl="Content/delete1.png" CausesValidation="false" OnClick="closeImg_Click" />
         </asp:Panel>
         <div class="clear"></div>
-        <asp:Image ID="BiggImage" runat="server" Visible="false" />
+        <asp:Image ID="FullImage" runat="server" Visible="false" />
         <asp:Panel ID="Panel1" runat="server">
             <asp:Repeater ID="Repeater1" runat="server" ItemType="Galleriet.Model.ThumImgUrl" SelectMethod="Repeater1_GetData" OnItemCommand="Repeater1_ItemCommand">
 
                 <ItemTemplate>
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#Item.FileUrl %>'>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#Item.FileUrl %>' CssClass='<%# FullImage.ImageUrl.EndsWith(Item.Name) ? "ActiveImg" : null %>'>
                         <asp:Image ID="ImageOne" runat="server" ImageUrl='<%#Item.ImgUrl %>' />
                     </asp:HyperLink>
                 </ItemTemplate>

@@ -44,32 +44,23 @@ namespace Galleriet.Model
                     select new ThumImgUrl
                     {
                         Name = fi.Name,
-                        FileUrl = Path.Combine("?Name=",fi.Name),
-                        ImgUrl = Path.Combine("Pics/ThumbNails/",fi.Name)
+                        FileUrl = String.Format("?Name={0}",fi.Name),
+                        ImgUrl = String.Format("Pics/ThumbNails/{0}", fi.Name)
                     }).AsEnumerable();
         }
 
         //statisk metod som returnerar true om en bild med angivet namn finns katalogen för uppladdade bilder; annars false.
         public static bool ImageExists(string name)
         {
-            if (File.Exists(Path.Combine(PhysicalUploadImagePath, name)))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return File.Exists(Path.Combine(PhysicalUploadImagePath, name));
         }
 
         //Metoden IsValidImage returnerar true om den uppladdade filens innehåll verkligen är av typen gif, jpeg eller png.
         public static bool IsValidImage(Image image)
         {
-            if (image.RawFormat.Guid == ImageFormat.Gif.Guid || image.RawFormat.Guid == ImageFormat.Jpeg.Guid || image.RawFormat.Guid == ImageFormat.Png.Guid)
-            {
-                return true;
-            }
-            return false;
+            return image.RawFormat.Guid == ImageFormat.Gif.Guid || 
+                image.RawFormat.Guid == ImageFormat.Jpeg.Guid || 
+                image.RawFormat.Guid == ImageFormat.Png.Guid;
         }
 
 
@@ -78,12 +69,12 @@ namespace Galleriet.Model
         {
             var image = System.Drawing.Image.FromStream(stream);
 
-            fileName = SantizePath.Replace(fileName, string.Empty);
-
             if (!IsValidImage(image))
             {
                 throw new ArgumentException("Fel! Filen har fel MIME-typ");
             }
+
+            fileName = SantizePath.Replace(fileName, string.Empty);
 
 
             // Skapar räknare .
@@ -130,6 +121,5 @@ namespace Galleriet.Model
             // Retunerar filename.
             return fileName;
         }
-
     }
 }

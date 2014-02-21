@@ -1,120 +1,122 @@
 ﻿body {
-background-image:url("PLATUX_Gallery.jpg");
-
+    background-image: url("PLATUX_Gallery.jpg");
 }
 
-#closeImg{
-width: 30px;
+#closeImg {
+    width: 30px;
 }
 
 #ValidationSummary1 {
-color: hsl(0, 100%, 50%);
-background-color: hsl(0, 0%, 0%);
-font-family: cursive;
-font-size: small;
-font-weight: 700;
-width: 307px;
-text-align: center;
-border: hsl(0, 100%, 50%) solid 2px;
+    color: hsl(0, 100%, 50%);
+    background-color: hsl(0, 0%, 0%);
+    font-family: cursive;
+    font-size: small;
+    font-weight: 700;
+    width: 307px;
+    text-align: center;
+    border: hsl(0, 100%, 50%) solid 2px;
 }
+
     #ValidationSummary1 img {
-        width:20px;
+        width: 20px;
     }
 
-    #RequiredFieldValidator1 img {
-        width:20px;
-    }
+#RequiredFieldValidator1 img {
+    width: 20px;
+}
 
 #RegularExpressionValidator1 img {
-        width:20px;
-    }
-#Label1 img {
- width:20px;
+    width: 20px;
 }
+
+#Label1 img {
+    width: 20px;
+}
+
 #RequiredFieldValidator1 {
-color: hsl(0, 100%, 50%);
-background-color: hsl(0, 0%, 0%);
-font-family: cursive;
-font-size: small;
-font-weight: 700;
-width: 307px;
-text-align: center;
-border: hsl(0, 100%, 50%) solid 2px;
+    color: hsl(0, 100%, 50%);
+    background-color: hsl(0, 0%, 0%);
+    font-family: cursive;
+    font-size: small;
+    font-weight: 700;
+    width: 307px;
+    text-align: center;
+    border: hsl(0, 100%, 50%) solid 2px;
 }
 
 #RegularExpressionValidator1 {
-color: hsl(0, 100%, 50%);
-background-color: hsl(0, 0%, 0%);
-font-family: cursive;
-font-size: small;
-font-weight: 700;
-width: 307px;
-text-align: center;
-border: hsl(0, 100%, 50%) solid 2px;
+    color: hsl(0, 100%, 50%);
+    background-color: hsl(0, 0%, 0%);
+    font-family: cursive;
+    font-size: small;
+    font-weight: 700;
+    width: 307px;
+    text-align: center;
+    border: hsl(0, 100%, 50%) solid 2px;
 }
 
 #TheFileUpload {
-font-family: -webkit-pictograph;
-font-size: small;
-font-style: oblique;
-font-weight: bold;
-height: 25px;
-padding-top: 10px;
+    font-family: -webkit-pictograph;
+    font-size: small;
+    font-style: oblique;
+    font-weight: bold;
+    height: 25px;
+    padding-top: 10px;
 }
 
 #Button1 {
-padding: 5px;
-width: auto;  
-text-align: center;
-font-family: monospace;
-font-style: italic;
-font-weight: bold;
+    padding: 5px;
+    width: auto;
+    text-align: center;
+    font-family: monospace;
+    font-style: italic;
+    font-weight: bold;
 }
 
 h1 {
-font-family: monospace;
-font-size: xx-large;
-font-style: italic;
-font-variant: normal;
-font-weight: bolder;
-margin-left: 120px;
+    font-family: monospace;
+    font-size: xx-large;
+    font-style: italic;
+    font-variant: normal;
+    font-weight: bolder;
+    margin-left: 120px;
 }
 
 #Panel2 {
-width: 380px;
-margin-top: 10px;
-background-color: hsl(48, 100%, 93%);
+    width: 380px;
+    margin-top: 10px;
+    background-color: hsl(48, 100%, 93%);
 }
 
 #Panel1 {
-border: hsl(286, 2%, 14%) solid 1px;
-overflow-x: scroll;
-white-space: nowrap;
-width: 380px;
-
+    border: hsl(286, 2%, 14%) solid 1px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 380px;
 }
 
-#BiggImage {
-width: 380px;
-height: 380px;
+#FullImage {
+    width: 380px;
+    height: 380px;
 }
 
 #Label1 {
-background-color: hsl(180, 100%, 27%);
-font-family: cursive;
-font-size: larger;
-font-style: italic;
-font-weight: 600;
-height:auto;
-
-
+    background-color: hsl(180, 100%, 27%);
+    font-family: cursive;
+    font-size: larger;
+    font-style: italic;
+    font-weight: 600;
+    height: auto;
 }
 
 #form1 {
-margin-left: 440px;
+    margin-left: 440px;
 }
 
 .clear {
-clear:both;
-height:30px;
+    clear: both;
+    height: 30px;
+}
+.ActiveImg {
+border:solid green 1px;
 }

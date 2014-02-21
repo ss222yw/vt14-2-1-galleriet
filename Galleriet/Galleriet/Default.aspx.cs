@@ -17,51 +17,70 @@ namespace Galleriet
         // _gallery är null , ?? skapar ett nytt objekt med värde när det behövs .  
         private Gallery Gallery
         {
-            get{ return _gallery ?? (_gallery = new Gallery());}
+            get { return _gallery ?? (_gallery = new Gallery()); }
+        }
+
+        // Privat fält för meddlande.
+        private string Message
+        {
+            get
+            {
+                string message = Session["responseMessage"] as string;
+                Session.Remove("responseMessage");
+                return message;
+            }
+            set
+            {
+                Session["responseMessage"] = value;
+            }
+        }
+
+        // Publik bool som retunerar true eller false.
+        public bool MessageExists
+        {
+            get
+            {
+                return Session["responseMessage"] != null;
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //var gallery = new Gallery();
-            //Repeater1.DataSource = gallery.GetImageNames();
-            //Repeater1.DataBind();
-
             var v = Request.QueryString["name"];
 
-            if (v != null)
+            if (v != null && Gallery.ImageExists(v))
             {
 
-                BiggImage.Visible = true;
-                Gallery.ImageExists(v);
-
-                BiggImage.ImageUrl = "Pics/" + v;
+                FullImage.Visible = true;
+                FullImage.ImageUrl = "Pics/" + v;
             }
 
-            if (Request.QueryString["uploaded"] == "made")
+            if (MessageExists)
             {
-                ClosePanel.Visible = true;
-                Label1.Text = string.Format("<img src=Content/Right.png /> Bilden   {0}  har sparat.", v);
+                ResponsePanel.Visible = true;
+                Label1.Text = Message;
             }
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (IsValid )
+            if (IsValid)
             {
                 if (TheFileUpload.HasFile)
-                {   
+                {
                     try
                     {
-                      string upLoad =  Gallery.SaveImage(TheFileUpload.FileContent, TheFileUpload.FileName);
-                        Response.Redirect(String.Format("?name=" + upLoad + "&uploaded=made"));
+                        string upLoad = Gallery.SaveImage(TheFileUpload.FileContent, TheFileUpload.FileName);
+                        Message = String.Format("<img src=Content/Right.png /> Bilden {0} är sparad", upLoad);
+                        Response.Redirect(String.Format("?name=" + upLoad));
                     }
                     catch (Exception ex)
                     {
-                        ModelState.AddModelError("" , ex);
+                        ModelState.AddModelError(string.Empty, ex);
                     }
                 }
- 
+
             }
         }
 
@@ -75,12 +94,12 @@ namespace Galleriet
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
+
         }
 
         protected void closeImg_Click(object sender, ImageClickEventArgs e)
         {
-            ClosePanel.Visible = true;
+            ResponsePanel.Visible = true;
             var close = Request.QueryString["name"];
             Response.Redirect(String.Format("?name={0}", close));
         }

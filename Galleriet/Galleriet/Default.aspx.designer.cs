@@ -22,13 +22,13 @@ namespace Galleriet {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ClosePanel control.
+        /// ResponsePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ClosePanel;
+        protected global::System.Web.UI.WebControls.Panel ResponsePanel;
         
         /// <summary>
         /// Label1 control.
@@ -49,13 +49,13 @@ namespace Galleriet {
         protected global::System.Web.UI.WebControls.ImageButton closeImg;
         
         /// <summary>
-        /// BiggImage control.
+        /// FullImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image BiggImage;
+        protected global::System.Web.UI.WebControls.Image FullImage;
         
         /// <summary>
         /// Panel1 control.
